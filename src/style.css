@@ -1,0 +1,197 @@
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/geist-mono';
+
+/* ============================================================
+   Design tokens - one accent (emerald-mint), one neutral family.
+   Dark is the primary identity; light is a faithful inversion.
+   ============================================================ */
+:root {
+  --font-sans: 'Geist Variable', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', monospace;
+
+  --accent: #34e0a1;
+  --accent-strong: #34e0a1;
+  --accent-contrast: #04130c;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --maxw: 1240px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --shadow-soft: 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+}
+
+:root[data-theme='dark'] {
+  --bg: #0a0a0b;
+  --bg-grid: rgba(244, 244, 245, 0.025);
+  --elev: #121215;
+  --surface: #16161a;
+  --surface-hover: #1d1d22;
+  --fg: #f4f4f5;
+  --muted: #a1a1aa;
+  --faint: #71717a;
+  --line: rgba(244, 244, 245, 0.09);
+  --line-strong: rgba(244, 244, 245, 0.16);
+  --accent-glow: rgba(52, 224, 161, 0.16);
+  --accent-soft: rgba(52, 224, 161, 0.1);
+  --canvas-particle: 52, 224, 161;
+}
+
+:root[data-theme='light'] {
+  --bg: #fafafa;
+  --bg-grid: rgba(9, 9, 11, 0.03);
+  --elev: #ffffff;
+  --surface: #ffffff;
+  --surface-hover: #f4f4f5;
+  --fg: #18181b;
+  --muted: #52525b;
+  --faint: #71717a;
+  --line: rgba(9, 9, 11, 0.1);
+  --line-strong: rgba(9, 9, 11, 0.18);
+  --accent: #0d9e6a;
+  --accent-strong: #0d9e6a;
+  --accent-contrast: #ffffff;
+  --accent-glow: rgba(13, 158, 106, 0.12);
+  --accent-soft: rgba(13, 158, 106, 0.08);
+  --canvas-particle: 13, 158, 106;
+  --shadow-soft: 0 24px 60px -30px rgba(9, 9, 11, 0.22);
+}
+
+/* ============================================================
+   Reset & base
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  overflow-x: hidden;
+  transition: background 0.4s var(--ease), color 0.4s var(--ease);
+}
+
+/* Faint engineering grid behind everything */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: linear-gradient(var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 100% 70% at 50% 0%, #000 35%, transparent 75%);
+  pointer-events: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ============================================================
+   Layout primitives
+   ============================================================ */
+.shell {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+.section {
+  position: relative;
+  padding-block: clamp(5rem, 11vw, 9rem);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.lead {
+  color: var(--muted);
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  line-height: 1.7;
+  max-width: 60ch;
+}
+
+/* ============================================================
+   Reveal-on-scroll (driven by IntersectionObserver, JS-gated)
+   ============================================================ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

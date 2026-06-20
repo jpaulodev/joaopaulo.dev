@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0A0A0B" />
+
+    <title>João Paulo da Silva · Senior Full-Stack Engineer</title>
+    <meta
+      name="description"
+      content="Senior Full-Stack Engineer with 15+ years building scalable web apps, APIs and distributed systems. TypeScript on the backend, Vue.js on the frontend. Open to remote roles."
+    />
+    <meta name="author" content="João Paulo da Silva" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://joaopaulo.dev/" />
+    <meta property="og:title" content="João Paulo da Silva · Senior Full-Stack Engineer" />
+    <meta
+      property="og:description"
+      content="15+ years building scalable web apps, APIs and distributed systems. TypeScript · Node · Vue. Open to remote roles."
+    />
+    <meta property="og:image" content="https://joaopaulo.dev/og.svg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="João Paulo da Silva · Senior Full-Stack Engineer" />
+    <meta
+      name="twitter:description"
+      content="15+ years building scalable web apps, APIs and distributed systems. TypeScript · Node · Vue."
+    />
+
+    <!-- Theme bootstrap: avoid flash of wrong theme before Vue mounts -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('jp-theme')
+          var theme =
+            stored ||
+            (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+          document.documentElement.setAttribute('data-theme', theme)
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
