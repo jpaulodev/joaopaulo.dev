@@ -6,6 +6,7 @@
   "description": "Interactive CV / portfolio of João Paulo da Silva — Senior Full-Stack Engineer",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/fetch-contributions.mjs",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview"
   },
