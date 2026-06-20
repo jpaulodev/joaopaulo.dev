@@ -1,6 +1,6 @@
 # joaopaulo.dev
 
-Interactive CV / portfolio of **João Paulo da Silva** · Senior Full-Stack Engineer.
+Interactive CV / portfolio of **João Paulo da Silva** · Senior Software Engineer.
 
 Built with the same stack I work in daily: **Vue 3 + TypeScript + Vite**, with **GSAP**
 ScrollTrigger for scroll choreography and a hand-written canvas particle network in the hero.

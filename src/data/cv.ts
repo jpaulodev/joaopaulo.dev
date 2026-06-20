@@ -3,7 +3,7 @@
 
 export const profile = {
   name: 'João Paulo da Silva',
-  role: 'Senior Full-Stack Engineer',
+  role: 'Senior Software Engineer',
   tagline:
     'I build scalable web apps, APIs and distributed systems. TypeScript on the backend, Vue.js on the frontend, with a focus on clean, reliable, maintainable architecture.',
   summary:

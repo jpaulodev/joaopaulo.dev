@@ -20,7 +20,7 @@
   <text x="80" y="330" font-family="system-ui, -apple-system, Segoe UI, sans-serif"
         font-size="92" font-weight="600" fill="#F4F4F5" letter-spacing="-3">João Paulo da Silva</text>
   <text x="80" y="412" font-family="system-ui, -apple-system, Segoe UI, sans-serif"
-        font-size="44" font-weight="500" fill="#34E0A1" letter-spacing="-1">Senior Full-Stack Engineer</text>
+        font-size="44" font-weight="500" fill="#34E0A1" letter-spacing="-1">Senior Software Engineer</text>
   <text x="80" y="486" font-family="system-ui, -apple-system, Segoe UI, sans-serif"
         font-size="30" fill="#A1A1AA">15+ years · TypeScript · Node · Vue · Remote since 2017</text>
   <line x1="80" y1="540" x2="1120" y2="540" stroke="#27272A" stroke-width="1"/>
