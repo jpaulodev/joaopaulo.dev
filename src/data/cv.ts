@@ -75,6 +75,10 @@ export const stackGroups: StackGroup[] = [
     label: 'Integrations',
     items: ['Stripe', 'Braintree', 'Swagger / OpenAPI'],
   },
+  {
+    label: 'AI tooling',
+    items: ['Claude Code', 'GitHub Copilot'],
+  },
 ]
 
 // Mapping to Simple Icons slugs for the logo marquee. Only brands with a clean,
@@ -105,6 +109,8 @@ export const techLogos: TechLogo[] = [
   { name: 'Python', slug: 'python' },
   { name: 'PHP', slug: 'php' },
   { name: 'Sass', slug: 'sass' },
+  { name: 'Claude', slug: 'claude' },
+  { name: 'GitHub Copilot', slug: 'githubcopilot' },
 ]
 
 export interface Role {

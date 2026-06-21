@@ -73,13 +73,6 @@ const marquee = [...techLogos, ...techLogos]
 .stack-group:hover {
   background: var(--elev);
 }
-/* 7 groups in a 2-col grid would leave one empty cell; the last spans full width. */
-.stack-group:last-child {
-  grid-column: 1 / -1;
-}
-.stack-group:last-child .chips {
-  max-width: none;
-}
 .group-label {
   font-size: 0.72rem;
   letter-spacing: 0.16em;
